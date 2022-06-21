@@ -1,5 +1,5 @@
-import { Heading } from "@chakra-ui/react";
+import { Header } from "../../components/Header";
 
 export const Home = () => {
-    return <Heading>Home</Heading>;
+    return <Header boxShadow="0 0 1em black" />;
 };
