@@ -17,6 +17,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useState } from "react";
 import { useAuth } from "../../contexts/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 const signInSchema = yup.object().shape({
     email: yup.string().required("Email obrigatório").email("Email invalido"),
@@ -31,6 +32,8 @@ export const Login = () => {
     const [loading, setLoading] = useState(false);
 
     const { signIn } = useAuth();
+
+    const navigate = useNavigate();
 
     const {
         formState: { errors },
@@ -80,13 +83,33 @@ export const Login = () => {
                     paddingRight="100px"
                     justifyItems={["none", "none", "center", "center"]}
                 >
-                    <Image
-                        src={illustration}
-                        alt="logo"
-                        boxSize={["120px", "120px", "350px", "350px"]}
-                    />
-                    <Heading as="h1">Aluga Car</Heading>
-                    <Text>Um jeito facil de alugar seu carro</Text>
+                    <Flex
+                        flexDirection="column"
+                        w={["max-content", "full", "full", "full"]}
+                    >
+                        <Button
+                            onClick={() => navigate("/")}
+                            variant="link"
+                            color="green.800"
+                            alignSelf={[
+                                "flex-end",
+                                "flex-end",
+                                "flex-start",
+                                "flex-start",
+                            ]}
+                            position="absolute"
+                            top="50px"
+                        >
+                            Voltar
+                        </Button>
+                        <Image
+                            src={illustration}
+                            alt="logo"
+                            w={["120px", "120px", "350px", "350px"]}
+                        />
+                        <Heading as="h1">Aluga Car</Heading>
+                        <Text>Um jeito facil de alugar seu carro</Text>
+                    </Flex>
                 </Grid>
                 <Grid
                     as="form"
@@ -143,6 +166,7 @@ export const Login = () => {
                             Ainda nao possui uma conta?
                         </Text>
                         <Button
+                            onClick={() => navigate("/signup")}
                             w="100%"
                             bgColor="gray.100"
                             color="gray.300"

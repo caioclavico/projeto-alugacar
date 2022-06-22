@@ -3,6 +3,7 @@ import { Dashboard } from "../pages/Dashboard";
 
 import { Home } from "../pages/Home";
 import { Login } from "../pages/Login";
+import { Signup } from "../pages/Signup";
 import { LoginAuth } from "./LoginAuth";
 import { RequireAuth } from "./RequireAuth";
 
@@ -18,6 +19,7 @@ export const Routes = () => {
                     </LoginAuth>
                 }
             />
+            <Route path="/signup" element={<Signup />} />
             <Route
                 path="/dashboard"
                 element={

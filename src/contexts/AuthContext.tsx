@@ -11,11 +11,6 @@ interface AuthProviderProps {
     children: ReactNode;
 }
 
-interface User {
-    email: string;
-    id: string;
-    nome: string;
-}
 interface AuthState {
     token: string;
 }
@@ -25,10 +20,20 @@ interface SignInData {
     password: string;
 }
 
+interface SignUpData {
+    name: string;
+    email: string;
+    password: string;
+    cpf: string;
+    licenseCategory: string;
+    license?: boolean;
+}
+
 interface AuthContexData {
     token: string;
     signIn: (credentials: SignInData) => Promise<void>;
     signOut: () => void;
+    signUp: (credentials: SignUpData) => Promise<void>;
 }
 
 const AuthContext = createContext<AuthContexData>({} as AuthContexData);
@@ -67,8 +72,15 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
         localStorage.removeItem("@AlugaCar:token");
         setData({} as AuthState);
     }, []);
+
+    const signUp = useCallback(async (data: SignUpData) => {
+        await api.post("users/register", data);
+    }, []);
+
     return (
-        <AuthContext.Provider value={{ signIn, token: data.token, signOut }}>
+        <AuthContext.Provider
+            value={{ signIn, token: data.token, signOut, signUp }}
+        >
             {children}
         </AuthContext.Provider>
     );
