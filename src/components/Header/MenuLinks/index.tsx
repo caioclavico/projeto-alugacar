@@ -22,6 +22,7 @@ export const MenuLinks = ({ isOpen }: MenuLinksProps) => {
                 <MenuItem to="/">Home</MenuItem>
                 <MenuItem to="/cars">Carros </MenuItem>
                 <MenuItem to="/pricing">Preços </MenuItem>
+                <MenuItem to="/login">Login </MenuItem>
                 <MenuItem to="/signup" isLast>
                     <Button
                         size="sm"
