@@ -10,7 +10,7 @@ import {
     VStack,
 } from "@chakra-ui/react";
 
-export const Home = () => {
+export const Cars = () => {
     return (
         <Flex flexDirection="column">
             <Header />

@@ -4,7 +4,7 @@ import { ReactNode } from "react";
 interface MenuItemProps {
     children: ReactNode;
     isLast?: boolean;
-    to: string;
+    to?: string;
 }
 
 export const MenuItem = ({

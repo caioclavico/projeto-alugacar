@@ -1,4 +1,5 @@
 import { Routes as Switch, Route } from "react-router-dom";
+import { Cars } from "../pages/Cars";
 import { Dashboard } from "../pages/Dashboard";
 
 import { Home } from "../pages/Home";
@@ -28,6 +29,7 @@ export const Routes = () => {
                     </RequireAuth>
                 }
             />
+            <Route path="/cars" element={<Cars />} />
         </Switch>
     );
 };

@@ -21,6 +21,7 @@ export const NavBarContainer = ({
             p={[4, 6, 6, 6]}
             bg={["green.500", "green.500", "transparent", "transparent"]}
             color={["white", "white", "green.700", "green.700"]}
+            boxShadow="0 0 1em black"
             {...props}
         >
             {children}

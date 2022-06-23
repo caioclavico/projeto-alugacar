@@ -73,7 +73,7 @@ export const Signup = () => {
                     duration: 5000,
                     isClosable: true,
                 });
-                navigate("/");
+                navigate("/login");
             })
             .catch((err) => {
                 console.log(err);
